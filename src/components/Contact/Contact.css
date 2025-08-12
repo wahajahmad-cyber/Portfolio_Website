@@ -1,0 +1,186 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px; /* Reduced from 60px */
+    margin: 0px auto; /* Reduced from 60px */
+    margin-top: -60px; /* Added to account for navbar height */
+    max-width: 1200px;
+    padding: 0 20px;
+    min-height: calc(100vh - 60px); /* Account for navbar */
+    position: relative;
+    z-index: 2;  /* Add this to keep contact section above particles */
+}
+
+.contact-title {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+    z-index: 2;  /* Add this to keep title above particles */
+}
+
+.contact-title h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-title span {
+    color: #61DBFB;
+    font-weight: 800;
+}
+
+.contact-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #61DBFB, transparent);
+    border-radius: 2px;
+}
+
+.contact-title img {
+    display: none;
+}
+
+.contact-section {
+    display: flex;
+    gap: 60px; /* Reduced from 80px */
+    width: 100%;
+    position: relative;
+    z-index: 2;  /* Add this to keep form section above particles */
+}
+
+.contact-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Reduced from 40px */
+}
+
+.contact-left h1 {
+    font-size: 36px; /* Reduced from 42px */
+    font-weight: 600;
+    color: #888;
+}
+
+.contact-left p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #d8d8d8;
+    font-size: 20px;
+}
+
+.detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #888;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.detail:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Reduced from 25px */
+}
+
+.contact-right label {
+    color: #888;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.contact-right input,
+.contact-right textarea {
+    width: 100%;
+    padding: 12px; /* Reduced from 15px */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;  /* Add this to keep form inputs above particles */
+}
+
+.contact-right input:focus,
+.contact-right textarea:focus {
+    outline: none;
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-submit {
+    align-self: flex-start;
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;  /* Add this to keep submit button above particles */
+}
+
+.contact-submit:hover {
+    background: #fff;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .contact {
+        margin: 40px 20px;
+        gap: 10px;
+    }
+
+    .contact-title h1 {
+        font-size: 38px;
+    }
+
+    .contact-title::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .contact-section {
+        flex-direction: column;
+        margin-left: -7%;
+        gap: 30px;
+        gap: 40px;
+    }
+
+    .contact-left h1 {
+        font-size: 32px;
+    }
+
+    .contact-right input,
+    .contact-right textarea {
+        padding: 12px;
+    }
+}

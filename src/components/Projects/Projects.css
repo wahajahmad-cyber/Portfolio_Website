@@ -1,0 +1,445 @@
+q.projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin: 80px 170px;
+}
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;  /* Keep MyWork section above particles */
+}
+.projects-title{
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+}
+.projects-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;  /* Keep title above particles */
+}
+.projects-title h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.projects-title h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.projects-title span {
+    color: #61DBFB;
+    font-weight: 800;
+}
+.projects-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #61DBFB, transparent);
+    border-radius: 2px;
+}
+/* Remove or comment out the duplicate h1 style with gradient */
+/* .projects-title h1 {
+    font-size: 64px;
+    background: linear-gradient(...);
+    ...
+} */
+.projects-title img{
+    display: none;
+}
+.projects-title img {
+    display: none;
+}
+.projects-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: -5%;
+    position: relative;
+    z-index: 2;  /* Keep grid container above particles */
+}
+.projects-container img{
+    box-sizing: border-box;
+    width: 419px;
+    height: 280px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.projects-container img:hover{
+    transform:scale(1.10);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.showmore {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -3%;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;  /* Keep button above particles */
+}
+
+.showmore:hover {
+    border-color: #61DBFB;
+    color: #61DBFB;
+    transform: translateY(-2px);
+    background: rgba(97, 219, 251, 0.03);
+}
+
+.showmore:active {
+    transform: translateY(0);
+}
+
+.showmore img {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.showmore:hover img {
+    transform: translateX(4px);
+}
+
+/* Remove complex animations */
+.showmore::before {
+    display: none;
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+    .showmore {
+        padding: 12px 24px;
+        font-size: 15px;
+        border-width: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .showmore:hover {
+        transform: none;
+        background: rgba(97, 219, 251, 0.03);
+    }
+
+    .showmore:hover img {
+        transform: translateX(4px);
+    }
+
+    .showmore:active {
+        transform: translateY(1px);
+        background: rgba(97, 219, 251, 0.05);
+    }
+
+    .showmore:active {
+        background: rgba(97, 219, 251, 0.1);
+        border-color: #61DBFB;
+        color: #61DBFB;
+        transform: scale(0.98);
+    }
+
+    .showmore:active img {
+        transform: translateX(4px);
+    }
+
+    /* Add ripple effect for mobile touch */
+    .showmore::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, #61DBFB 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform 0.5s, opacity 0.5s;
+    }
+
+    .showmore:active::after {
+        transform: scale(0, 0);
+        opacity: 0.3;
+        transition: 0s;
+    }
+
+    .repo-card, 
+    .showmore {
+        position: relative;
+        z-index: 2;  /* Maintain z-index on mobile */
+    }
+}
+.showmore a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+.repo-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    max-width: 300px;
+    border: 1px solid #333;
+    position: relative;
+    z-index: 2;  /* Keep cards above particles */
+}
+.repo-card:hover {
+    background: #ffffff;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 30px rgba(97, 219, 251, 0.15);
+    z-index: 3;  /* Raise z-index on hover for better shadow visibility */
+}
+.repo-card h3 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.repo-card:hover h3 {
+    color: #1a1a1a;
+}
+.repo-card p {
+    color: #888;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+.repo-card:hover p {
+    color: #555;
+}
+.repo-stats {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    color: #888;
+    font-size: 16px;
+}
+.repo-card a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+.repo-card:hover a {
+    color: #1a1a1a;
+}
+.showmore a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+@media (max-width:768px) {
+    .projects{
+        gap: 30px;
+        margin: 40px auto;
+        padding: 0 20px;
+        align-items: center;
+    }
+    .projects-title h1{
+        padding: 0;
+        font-size: 38px;
+        font-weight: 600;
+    }
+    .projects-title img{
+        width: 130px;
+        right: -20px;
+    }
+    .projects-title::after {
+        width: 40px;
+        height: 3px;
+    }
+    .projects-container{
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -10%;
+        gap: 20px;
+        padding: 20px;
+    }
+    .repo-card {
+        min-height: 280px;
+        padding: 25px;
+    }
+    .repo-card h3 {
+        font-size: 20px;
+    }
+    .repo-card p {
+        font-size: 14px;
+    }
+    .repo-stats {
+        font-size: 14px;
+        gap: 15px;
+        margin: 15px 0;
+    }
+    .repo-card a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .projects-title h1 {
+        font-size: 38px;
+    }
+
+    .projects-title::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .repo-card:hover {
+        transform: none;
+        box-shadow: none;
+        background: #1a1a1a;
+    }
+
+    .repo-card:hover h3 {
+        color: #fff;
+    }
+
+    .repo-card:hover p {
+        color: #888;
+    }
+
+    .repo-card:hover a {
+        color: #fff;
+    }
+
+    /* First, remove all mobile-specific button animations */
+    .showmore {
+        padding: 12px 24px;
+        font-size: 15px;
+        border: 1px solid #61DBFB;
+        background: transparent;
+        color: #61DBFB;
+        transition: none;
+    }
+
+    /* Remove hover effects since they don't work well on mobile */
+    .showmore:hover {
+        transform: none;
+        background: transparent;
+    }
+
+    .showmore:hover img {
+        transform: none;
+    }
+
+    /* Remove ripple and other complex effects */
+    .showmore::after,
+    .showmore::before {
+        display: none;
+    }
+
+    /* Remove active state animations */
+    .showmore:active {
+        transform: none;
+        background: transparent;
+    }
+
+    .showmore:active img {
+        transform: none;
+    }
+
+    /* Remove existing transition delays */
+    .showmore,
+    .showmore img {
+        transition: none;
+    }
+
+    /* Clean up any leftover effects */
+    .showmore:hover,
+    .showmore:active,
+    .showmore:focus {
+        box-shadow: none;
+        animation: none;
+    }
+}
+@media (max-width: 480px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .repo-card {
+        max-width: 100%;
+    }
+
+    .repo-card:hover {
+        transform: none;
+        box-shadow: none;
+        background: #1a1a1a;
+    }
+}
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+@keyframes glowingBorder {
+    0% {
+        box-shadow: 0 0 5px rgba(97, 219, 251, 0.2),
+                    0 0 10px rgba(97, 219, 251, 0.2),
+                    0 0 15px rgba(97, 219, 251, 0.2);
+        border-color: rgba(255, 255, 255, 1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(97, 219, 251, 0.4),
+                    0 0 30px rgba(97, 219, 251, 0.4),
+                    0 0 40px rgba(97, 219, 251, 0.4);
+        border-color: rgba(97, 219, 251, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(97, 219, 251, 0.2),
+                    0 0 10px rgba(97, 219, 251, 0.2),
+                    0 0 15px rgba(97, 219, 251, 0.2);
+        border-color: rgba(255, 255, 255, 1);
+    }
+}

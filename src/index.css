@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
+    background: #161513;
+    color: white;
+    font-family: 'outfit';
+    position: relative;
+}
+
+/* Add styles for sections to enable proper navigation */
+section {
+    position: relative;
+    width: 100%;
+    scroll-margin-top: 60px; /* Adjust based on your navbar height */
+}

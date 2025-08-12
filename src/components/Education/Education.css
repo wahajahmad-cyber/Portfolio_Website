@@ -1,0 +1,331 @@
+/* Timeline control variables */
+:root {
+    --timeline-line-extend: -13%;  /* Controls the vertical line extension */
+}
+
+.education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    margin-top: 8%;
+    margin-bottom: -2%;
+    max-width: 1200px;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;  /* Add this to keep education section above particles */
+}
+
+.education-title {
+    position: relative;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    z-index: 2;  /* Add this to keep title above particles */
+}
+
+.education-title h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.education-title span {
+    color: #61DBFB;
+    font-weight: 800;
+}
+
+.education-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #61DBFB, transparent);
+    border-radius: 2px;
+}
+
+.education-title img {
+    position: absolute;
+    top: -40%;
+    right: 0;
+    width: 180px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.education-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 40px;
+    border-left: none;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 30px;
+    height: calc(100% + var(--timeline-line-extend)); /* Using the control variable */
+    width: 2px;
+    background: rgba(97, 219, 251, 0.2);
+}
+
+.timeline-item:last-child::before {
+    height: calc(100% + var(--timeline-line-extend)); /* Using the same variable */
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #61DBFB;
+    display: block;
+    box-shadow: 0 0 15px rgba(97, 219, 251, 0.4);
+    z-index: 3;  /* Increased z-index to ensure dots stay above everything */
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;  /* Add this to keep timeline content above particles */
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    border-color: #61DBFB;
+    background: rgba(97, 219, 251, 0.05);
+    box-shadow: 0 10px 20px rgba(97, 219, 251, 0.1);
+}
+
+.timeline-content:hover .timeline-image {
+    border-color: #61DBFB;
+}
+
+.timeline-content:hover img {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.timeline-date {
+    color: #61DBFB;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.timeline-details {
+    color: #888;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.timeline-image {
+    flex: 0 0 350px;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+    overflow: hidden;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.timeline-text {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.timeline-text h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.timeline-date {
+    color: #61DBFB;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.timeline-details {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --timeline-line-extend: 30px;  /* Smaller extension for mobile */
+    }
+
+    .education {
+        margin: 0px auto -30px; /* Remove bottom margin */
+        padding: 0;
+        width: 100%;
+    }
+
+    .education-title h1 {
+        font-size: 38px;
+    }
+
+    .education-title img {
+        width: 130px;
+        opacity: 0.15;
+    }
+
+    .education-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Reduced gap between cards */
+        padding: 0 20px; /* Consistent padding */
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .timeline-item {
+        padding-left: 25px;
+        padding: 0;
+        border-left: none;
+        padding: 0;
+        width: 100%;
+    }
+
+    .timeline-item::before {
+        left: 0;
+        top: 20px;
+        height: calc(100% + var(--timeline-line-extend));
+    }
+
+    .timeline-item:last-child::before {
+        height: calc(100% + var(--timeline-line-extend));
+    }
+
+    .timeline-dot {
+        top: 20px;
+        left: -5px;
+        top: 0;
+        transform: none;
+        width: 10px;
+        height: 10px;
+        display: block;
+    }
+
+    .timeline-item::before,
+    .timeline-dot {
+        display: none;
+    }
+
+    .timeline-content {
+        flex-direction: column;
+        padding: 0;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(97, 219, 251, 0.1);
+        overflow: hidden;
+        width: 100%;
+        margin: 0; /* Remove margins */
+        transition: transform 0.3s ease;
+        height: auto; /* Let content determine height */
+    }
+
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+
+    .timeline-date,
+    .timeline-details {
+        font-size: 14px;
+    }
+
+    .timeline-image {
+        width: 100%;
+        height: 200px; /* Fixed height for all images */
+        border-radius: 16px 16px 0 0;
+        overflow: hidden;
+        flex: none;
+    }
+
+    .timeline-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .timeline-text {
+        padding: 20px;
+        text-align: left;
+        border-top: 1px solid rgba(97, 219, 251, 0.1);
+        min-height: 150px; /* Ensure consistent card height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .timeline-text h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: #fff;
+    }
+
+    .timeline-date {
+        font-size: 14px;
+        margin-bottom: 12px;
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(97, 219, 251, 0.1);
+        border-radius: 20px;
+        color: #61DBFB;
+    }
+
+    .timeline-details {
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .timeline-content:active {
+        transform: scale(0.98);
+    }
+}

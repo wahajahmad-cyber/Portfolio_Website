@@ -116,8 +116,9 @@
 
 .hero-resume:hover {
     transform: scale(1.05);
-    background: grey;
-    border-color: grey;
+    background: rgba(97, 219, 251, 0.03);
+    border-color: #61DBFB;
+    color: #61DBFB;
 }
 
 .hero-social {

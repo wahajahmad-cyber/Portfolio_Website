@@ -363,18 +363,6 @@ q.projects{
         transition: all 0.3s ease; /* Keep transitions for active state */
     }
 
-    /* Ensure no hover effects are applied on touch devices */
-    .showmore:hover {
-        transform: none;
-        background: transparent;
-        border-color: rgba(255, 255, 255, 0.2);
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .showmore:hover img {
-        transform: none;
-    }
-
     /* Active state for mobile */
     .showmore:active {
         transform: translateY(1px);

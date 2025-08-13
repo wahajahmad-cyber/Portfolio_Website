@@ -75,12 +75,12 @@ const Hero = () => {
       <img src={pfp} alt="" />
       <div className="hero-content">
         <h1>
-          <span>Hey! I&apos;m Wahaj Ahmed,</span><br/>
+          <span>Hey! I'm Wahaj Ahmed,</span><br/>
           a DevOps Engineer
         </h1>
         <TypeAnimation
           sequence={[
-            "I&apos;m a DevOps Engineer, I have skills that might help you to grow your company",
+            "I'm a DevOps Engineer, I have skills that might help you to grow your company",
             1000,
             'I build Cloud/DevOps Infrastructure',
             1000,

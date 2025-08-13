@@ -4,7 +4,7 @@
 
 This is my personal portfolio website built to showcase my skills, projects, and professional experience. It's a modern, responsive single-page application created with React and Vite.
 
-**Live Demo:** [https://wahajahmad-cyber.github.io](https://wahajahmad-cyber.github.io)
+**Live Demo:** [https://www.wahajahmed.site/](https://www.wahajahmed.site/)
 
 ## Features
 

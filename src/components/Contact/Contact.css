@@ -148,8 +148,9 @@
 }
 
 .contact-submit:hover {
-    background: #fff;
-    color: #1a1a1a;
+    background: rgba(97, 219, 251, 0.03);
+    border-color: #61DBFB;
+    color: #61DBFB;
     transform: translateY(-3px);
 }
 

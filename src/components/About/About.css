@@ -50,14 +50,16 @@
 }
 
 .about-left {
-    flex: 0 0 500px; /* Increased from 400px */
+    flex: 0 0 400px; /* Adjusted from 500px */
     position: relative;
     z-index: 2;  /* Keep image container above particles */
 }
 
 .about-left img {
-    width: 85%; /* Increased from 78% */
-    height: auto;
+    width: 100%; /* Changed from 85% */
+    height: 400px; /* Added height */
+    object-fit: cover; /* Added object-fit */
+    object-position: top; /* Added object-position */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -70,8 +72,8 @@
     position: absolute;
     top: 15px;
     left: 15px;
-    width: 85%; /* Increased from 78% */
-    height: 100%;
+    width: 100%; /* Changed from 85% */
+    height: 400px; /* Changed from 100% */
     background: rgba(97, 219, 251, 0.05);
     border-radius: 20px;
     z-index: -1;

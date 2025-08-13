@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import './Hero.css'
-import pfp from '../../assets/pfp.jpg'
+import pfp from '../../assets/Wahaj2.png'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { TypeAnimation } from 'react-type-animation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

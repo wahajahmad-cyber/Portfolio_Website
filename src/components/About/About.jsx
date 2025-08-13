@@ -1,6 +1,6 @@
 import './About.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
-import pfp from '../../assets/Wahaj2.png'
+import pfp from '../../assets/Wahaj.jpeg'
 
 const About = () => {
   return (

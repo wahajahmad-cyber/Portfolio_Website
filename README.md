@@ -4,7 +4,7 @@
 
 This is my personal portfolio website built to showcase my skills, projects, and professional experience. It's a modern, responsive single-page application created with React and Vite.
 
-**Live Demo:** [https://www.wahajahmed.site/](https://www.wahajahmed.site/)
+**Live Demo:** [https://www.wahajahmed.site/][def]
 
 ## Features
 
@@ -86,3 +86,5 @@ This is my personal portfolio website built to showcase my skills, projects, and
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+[def]: https://www.wahajahmed.site/

@@ -353,46 +353,21 @@ q.projects{
         color: #fff;
     }
 
-    /* First, remove all mobile-specific button animations */
+    /* Mobile button styles */
     .showmore {
         padding: 12px 24px;
         font-size: 15px;
         border: 1px solid #61DBFB;
         background: transparent;
         color: #61DBFB;
-        transition: none;
-    }
-
-    /* Remove hover effects since they don't work well on mobile */
-    .showmore:hover {
-        transform: none;
-        background: transparent;
-    }
-
-    .showmore:hover img {
-        transform: none;
+        /* Ensure no hover effects are applied on touch devices */
+        transition: all 0.3s ease; /* Keep transitions for active state */
     }
 
     /* Remove ripple and other complex effects */
     .showmore::after,
     .showmore::before {
         display: none;
-    }
-
-    /* Remove active state animations */
-    .showmore:active {
-        transform: none;
-        background: transparent;
-    }
-
-    .showmore:active img {
-        transform: none;
-    }
-
-    /* Remove existing transition delays */
-    .showmore,
-    .showmore img {
-        transition: none;
     }
 
     /* Clean up any leftover effects */
@@ -403,6 +378,20 @@ q.projects{
         animation: none;
     }
 }
+
+@media (hover: none) {
+    .showmore:hover {
+        border-color: rgba(255, 255, 255, 0.2); /* Revert to default border */
+        color: rgba(255, 255, 255, 0.8); /* Revert to default color */
+        transform: none; /* Remove any transform */
+        background: transparent; /* Remove any background change */
+    }
+
+    .showmore:hover img {
+        transform: none; /* Remove any image transform */
+    }
+}
+
 @media (max-width: 480px) {
     .projects-container {
         grid-template-columns: 1fr;

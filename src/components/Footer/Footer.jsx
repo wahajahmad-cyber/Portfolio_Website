@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-top">
           <div className="footer-top-left">
-              <h1>dev.Suraj</h1>
+              <h1>Wahaj.Ahmed</h1>
               <p>I&apos;m a Developer here to learn</p>
           </div>
           <div className="footer-top-right">
@@ -19,7 +19,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className="footer-bottom">
-          <p className="footer-bottom-left">@Suraj Mallick.All rights reserved</p>
+          <p className="footer-bottom-left">@Wahaj Ahmed.All rights reserved</p>
           <div className="footer-bottom-right">
               <p>Terms of services</p>
               <p>Privacy Policy</p>

@@ -71,7 +71,6 @@
     transition: all 0.4s ease;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
     min-height: 450px; /* Increased height */
     max-width: 320px; /* Reduced width */
     text-align: center;

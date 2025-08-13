@@ -241,10 +241,18 @@
     }
 
     .hero-connect, .hero-resume {
-        padding: 10px 25px;
         border-radius: 25px;
         font-size: 15px;
         font-weight: 500;
+    }
+
+    .hero-connect {
+        padding: 0;
+    }
+
+    .hero-connect a,
+    .hero-resume {
+        padding: 10px 25px;
     }
 
     .hero-connect {

@@ -357,11 +357,34 @@ q.projects{
     .showmore {
         padding: 12px 24px;
         font-size: 15px;
-        border: 1px solid #61DBFB;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Default border for mobile */
         background: transparent;
-        color: #61DBFB;
-        /* Ensure no hover effects are applied on touch devices */
+        color: rgba(255, 255, 255, 0.8); /* Default color for mobile */
         transition: all 0.3s ease; /* Keep transitions for active state */
+    }
+
+    /* Ensure no hover effects are applied on touch devices */
+    .showmore:hover {
+        transform: none;
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .showmore:hover img {
+        transform: none;
+    }
+
+    /* Active state for mobile */
+    .showmore:active {
+        transform: translateY(1px);
+        background: rgba(97, 219, 251, 0.1);
+        border-color: #61DBFB;
+        color: #61DBFB;
+    }
+
+    .showmore:active img {
+        transform: translateX(4px);
     }
 
     /* Remove ripple and other complex effects */
@@ -371,8 +394,6 @@ q.projects{
     }
 
     /* Clean up any leftover effects */
-    .showmore:hover,
-    .showmore:active,
     .showmore:focus {
         box-shadow: none;
         animation: none;

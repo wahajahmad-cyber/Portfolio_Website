@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react'
 import './Projects.css'
 import arrow_icon from '../../assets/arrow_icon.svg'
 
+const desiredRepos = [
+  "Wanderlust-Mega-Project",
+  "E-Commerce-App-Project",
+  "BankApp-DevSecOps-Project",
+  "Netflix-DevSecOps-Project",
+  "Full-Stack-ChatApp",
+  "Two-Tier-Flask-App"
+];
+
 const Projects = () => {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const desiredRepos = [
-    "Wanderlust-Mega-Project",
-    "E-Commerce-App-Project",
-    "BankApp-DevSecOps-Project",
-    "Netflix-DevSecOps-Project",
-    "Full-Stack-ChatApp",
-    "Two-Tier-Flask-App"
-  ];
 
   useEffect(() => {
     fetch('https://api.github.com/users/wahajahmad-cyber/repos')

@@ -67,7 +67,7 @@ const Contact = () => {
           <input 
             type="hidden" 
             name="_next" 
-            value="https://wahajahmed.site/#contact?success=true" 
+            value="https://wahajahmed.site/?success=true#contact" 
           />
 
           <button type="submit" className="contact-submit">Submit Now</button>

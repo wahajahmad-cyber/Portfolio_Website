@@ -44,7 +44,7 @@ const Contact = () => {
 
         {/* FormSubmit version with redirect */}
         <form 
-          action="https://formsubmit.co/wahajahmad.alnafi@gmail.com" 
+          action="https://formsubmit.co/450b2afba024cd2503bf15d62be17617" 
           method="POST" 
           className="contact-right"
         >

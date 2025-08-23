@@ -20,6 +20,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
     if (!captchaValue) {
       alert('Please verify that you are not a robot.');
       return;
@@ -29,7 +30,7 @@ const Contact = () => {
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
-      token: captchaValue, // must match API
+      token: captchaValue, // matches API
     };
 
     try {
@@ -41,6 +42,7 @@ const Contact = () => {
       });
 
       const data = await response.json();
+
       if (response.ok) {
         setSuccess(true);
         e.target.reset();
@@ -68,6 +70,7 @@ const Contact = () => {
         <h1>Contact Me<span>.</span></h1>
         <img src={theme_pattern} alt="" />
       </div>
+
       <div className="contact-section">
         <div className="contact-left">
           <h1>Let's Talk</h1>
@@ -89,7 +92,6 @@ const Contact = () => {
           {success && (
             <div className="success-message">✅ Your message has been sent successfully!</div>
           )}
-
           {error && <div className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
@@ -102,7 +104,7 @@ const Contact = () => {
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required />
 
           <ReCAPTCHA
-            sitekey="6Len2q8rAAAAAEsJim67TyVBpQTwmB-SEjIDnS1c" // replace with your Google reCAPTCHA site key
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} // <-- set in .env
             onChange={handleCaptchaChange}
           />
 

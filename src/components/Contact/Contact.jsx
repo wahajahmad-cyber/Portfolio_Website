@@ -64,6 +64,8 @@ const Contact = () => {
     }
   }, [success]);
 
+  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
   return (
     <div id='contact' ref={contactRef} className='contact'>
       <div className="contact-title">
@@ -89,9 +91,7 @@ const Contact = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="contact-right">
-          {success && (
-            <div className="success-message">✅ Your message has been sent successfully!</div>
-          )}
+          {success && <div className="success-message">✅ Your message has been sent successfully!</div>}
           {error && <div className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
@@ -103,12 +103,18 @@ const Contact = () => {
           <label htmlFor="message">Write your message here:</label>
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required />
 
-          <ReCAPTCHA
-            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} // <-- set in .env
-            onChange={handleCaptchaChange}
-          />
+          {siteKey ? (
+            <ReCAPTCHA
+              sitekey={siteKey}
+              onChange={handleCaptchaChange}
+            />
+          ) : (
+            <p style={{ color: 'red' }}>
+              ⚠️ ReCAPTCHA site key is missing! Please set VITE_RECAPTCHA_SITE_KEY in your .env file.
+            </p>
+          )}
 
-          <button type="submit" className="contact-submit" disabled={loading}>
+          <button type="submit" className="contact-submit" disabled={loading || !siteKey}>
             {loading ? 'Sending...' : 'Submit Now'}
           </button>
         </form>

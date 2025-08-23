@@ -29,7 +29,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Simple FormSubmit version */}
+        {/* FormSubmit version with redirect */}
         <form 
           action="https://formsubmit.co/wahajahmad.alnafi@gmail.com" 
           method="POST" 
@@ -43,6 +43,13 @@ const Contact = () => {
 
           <label htmlFor="message">Write your message here:</label>
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required></textarea>
+
+          {/* Redirect to your portfolio after submission */}
+          <input 
+            type="hidden" 
+            name="_next" 
+            value="https://wahajahmed.site/#contact" 
+          />
 
           <button type="submit" className="contact-submit">Submit Now</button>
         </form>

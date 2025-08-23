@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
 import theme_pattern from '../../assets/theme_pattern.svg';
 import mail_icon from '../../assets/mail_icon.svg';
@@ -7,28 +8,65 @@ import call_icon from '../../assets/call_icon.svg';
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const contactRef = useRef(null);
+
+  const handleCaptchaChange = (value) => {
+    setCaptchaValue(value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!captchaValue) {
+      alert('Please verify that you are not a robot.');
+      return;
+    }
+
+    // Collect form data
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+      captcha: captchaValue,
+    };
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        e.target.reset();
+        setCaptchaValue(null);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error submitting form.');
+    }
+  };
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("success") === "true") {
-      setSuccess(true);
-
-      // Clean up URL so ?success=true disappears after showing message
-      const newUrl = window.location.pathname + window.location.hash;
-      window.history.replaceState(null, "", newUrl);
+    if (success && contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, []);
+  }, [success]);
 
   return (
-    <div id='contact' className='contact'>
+    <div id='contact' ref={contactRef} className='contact'>
       <div className="contact-title">
         <h1>Contact Me<span>.</span></h1>
         <img src={theme_pattern} alt="" />
       </div>
       <div className="contact-section">
         <div className="contact-left">
-          <h1>Let&apos;s Talk</h1>
-          <p>I&apos;m currently available to take on new opportunities, so feel free to Contact Me</p>
+          <h1>Let's Talk</h1>
+          <p>I'm currently available to take on new opportunities, so feel free to contact me.</p>
           <div className="contact-details">
             <div className="detail">
               <img src={mail_icon} alt="" /><p>wahajahmad.alnafi@gmail.com</p>
@@ -42,17 +80,8 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* FormSubmit version with redirect */}
-        <form 
-          action="https://formsubmit.co/450b2afba024cd2503bf15d62be17617" 
-          method="POST" 
-          className="contact-right"
-        >
-          {success && (
-            <div className="success-message">
-              ✅ Thank you! Your message has been sent successfully.
-            </div>
-          )}
+        <form onSubmit={handleSubmit} className="contact-right">
+          {success && <div className="success-message">✅ Your message has been sent successfully!</div>}
 
           <label htmlFor="name">Your Name:</label>
           <input type="text" name="name" placeholder="Enter your name:" required />
@@ -61,13 +90,11 @@ const Contact = () => {
           <input type="email" name="email" placeholder="Enter your email:" required />
 
           <label htmlFor="message">Write your message here:</label>
-          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required></textarea>
+          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required />
 
-          {/* Redirect to your portfolio after submission */}
-          <input 
-            type="hidden" 
-            name="_next" 
-            value="https://wahajahmed.site/?success=true#contact" 
+          <ReCAPTCHA
+            sitekey="6Len2q8rAAAAAEsJim67TyVBpQTwmB-SEjIDnS1c" // ← replace with your Google reCAPTCHA key
+            onChange={handleCaptchaChange}
           />
 
           <button type="submit" className="contact-submit">Submit Now</button>
@@ -75,6 +102,6 @@ const Contact = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Contact;

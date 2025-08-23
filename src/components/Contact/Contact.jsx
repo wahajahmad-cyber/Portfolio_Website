@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import './Contact.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
-import mail_icon from '../../assets/mail_icon.svg'
-import location_icon from '../../assets/location_icon.svg'
-import call_icon from '../../assets/call_icon.svg'
+import './Contact.css';
+import theme_pattern from '../../assets/theme_pattern.svg';
+import mail_icon from '../../assets/mail_icon.svg';
+import location_icon from '../../assets/location_icon.svg';
+import call_icon from '../../assets/call_icon.svg';
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    // Check URL params for success=true
     const params = new URLSearchParams(window.location.search);
     if (params.get("success") === "true") {
       setSuccess(true);
 
-      // Clear query params after showing message
-      window.history.replaceState({}, document.title, window.location.pathname + "#contact");
+      // Clean up URL so ?success=true disappears after showing message
+      const newUrl = window.location.pathname + window.location.hash;
+      window.history.replaceState(null, "", newUrl);
     }
   }, []);
 
@@ -42,11 +42,18 @@ const Contact = () => {
           </div>
         </div>
 
+        {/* FormSubmit version with redirect */}
         <form 
           action="https://formsubmit.co/wahajahmad.alnafi@gmail.com" 
           method="POST" 
           className="contact-right"
         >
+          {success && (
+            <div className="success-message">
+              ✅ Thank you! Your message has been sent successfully.
+            </div>
+          )}
+
           <label htmlFor="name">Your Name:</label>
           <input type="text" name="name" placeholder="Enter your name:" required />
 
@@ -57,24 +64,18 @@ const Contact = () => {
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required></textarea>
 
           {/* Redirect to your portfolio after submission */}
+          <input type="hidden" name="_captcha" value="false" />
           <input 
             type="hidden" 
             name="_next" 
-            value="https://wahajahmed.site/#contact?success=true" 
+            value="https://wahajahmed.site/?success=true#contact" 
           />
 
           <button type="submit" className="contact-submit">Submit Now</button>
         </form>
       </div>
-
-      {/* Success message */}
-      {success && (
-        <div className="success-message">
-          ✅ Thank you! Your message has been sent successfully.
-        </div>
-      )}
     </div>
-  )
+  );
 }
 
 export default Contact;

@@ -8,6 +8,8 @@ import call_icon from '../../assets/call_icon.svg';
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [captchaValue, setCaptchaValue] = useState(null);
   const contactRef = useRef(null);
 
@@ -17,37 +19,40 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setError('');
     if (!captchaValue) {
       alert('Please verify that you are not a robot.');
       return;
     }
 
-    // Collect form data
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
-      captcha: captchaValue,
+      token: captchaValue, // must match API
     };
 
     try {
-      const response = await fetch('/api/send-email', {
+      setLoading(true);
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
       if (response.ok) {
         setSuccess(true);
         e.target.reset();
         setCaptchaValue(null);
       } else {
-        alert('Something went wrong. Please try again.');
+        setError(data.message || 'Something went wrong. Please try again.');
       }
-    } catch (error) {
-      console.error(error);
-      alert('Error submitting form.');
+    } catch (err) {
+      console.error(err);
+      setError('Error submitting form. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -81,7 +86,11 @@ const Contact = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="contact-right">
-          {success && <div className="success-message">✅ Your message has been sent successfully!</div>}
+          {success && (
+            <div className="success-message">✅ Your message has been sent successfully!</div>
+          )}
+
+          {error && <div className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
           <input type="text" name="name" placeholder="Enter your name:" required />
@@ -93,11 +102,13 @@ const Contact = () => {
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required />
 
           <ReCAPTCHA
-            sitekey="6Len2q8rAAAAAEsJim67TyVBpQTwmB-SEjIDnS1c" // ← replace with your Google reCAPTCHA key
+            sitekey="6Len2q8rAAAAAEsJim67TyVBpQTwmB-SEjIDnS1c" // replace with your Google reCAPTCHA site key
             onChange={handleCaptchaChange}
           />
 
-          <button type="submit" className="contact-submit">Submit Now</button>
+          <button type="submit" className="contact-submit" disabled={loading}>
+            {loading ? 'Sending...' : 'Submit Now'}
+          </button>
         </form>
       </div>
     </div>

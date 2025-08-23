@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Contact.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
 import mail_icon from '../../assets/mail_icon.svg'
@@ -6,6 +6,19 @@ import location_icon from '../../assets/location_icon.svg'
 import call_icon from '../../assets/call_icon.svg'
 
 const Contact = () => {
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    // Check URL params for success=true
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "true") {
+      setSuccess(true);
+
+      // Clear query params after showing message
+      window.history.replaceState({}, document.title, window.location.pathname + "#contact");
+    }
+  }, []);
+
   return (
     <div id='contact' className='contact'>
       <div className="contact-title">
@@ -29,7 +42,6 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* FormSubmit version with redirect */}
         <form 
           action="https://formsubmit.co/wahajahmad.alnafi@gmail.com" 
           method="POST" 
@@ -48,12 +60,19 @@ const Contact = () => {
           <input 
             type="hidden" 
             name="_next" 
-            value="https://wahajahmed.site/#contact" 
+            value="https://wahajahmed.site/#contact?success=true" 
           />
 
           <button type="submit" className="contact-submit">Submit Now</button>
         </form>
       </div>
+
+      {/* Success message */}
+      {success && (
+        <div className="success-message">
+          ✅ Thank you! Your message has been sent successfully.
+        </div>
+      )}
     </div>
   )
 }

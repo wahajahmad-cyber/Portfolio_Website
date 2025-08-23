@@ -7,11 +7,11 @@ const Footer = () => {
         <div className="footer-top">
           <div className="footer-top-left">
               <h1>Wahaj.Ahmed</h1>
-              <p>I&apos;m a Developer here to learn</p>
+              <p>Future isn&apos;t coming, We&apos;re Engineering it.</p>
           </div>
           <div className="footer-top-right">
               <div className="footer-email-input">
-                  <img src={user_icon} alt="" />
+                  <img src={user_icon} alt="user icon" />
                   <input type="email" placeholder='Enter your Email:' />
               </div>
               <div className="footer-subscribe">Subscribe</div>

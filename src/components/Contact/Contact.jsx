@@ -1,3 +1,4 @@
+import React from 'react';
 import './Contact.css'
 import theme_pattern from '../../assets/theme_pattern.svg'
 import mail_icon from '../../assets/mail_icon.svg'
@@ -5,11 +6,13 @@ import location_icon from '../../assets/location_icon.svg'
 import call_icon from '../../assets/call_icon.svg'
 
 const Contact = () => {
+  const [result, setResult] = React.useState("");
   const onSubmit = async (event) => {
     event.preventDefault();
+    setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "aa9a4bb8-990d-41bd-9e52-95acc775dfcb");
+    formData.append("access_key", import.meta.env.VITE_ACCESS_KEY);
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
@@ -24,7 +27,11 @@ const Contact = () => {
     }).then((res) => res.json());
 
     if (res.success) {
-      alert(res.message);
+      setResult(res.message);
+      event.target.reset();
+    } else {
+      console.log("Error", res);
+      setResult(res.message);
     }
   };
 
@@ -37,28 +44,29 @@ const Contact = () => {
       <div className="contact-section">
         <div className="contact-left">
             <h1>Let&apos;s Talk</h1>
-            <p>I&apos;m currently available to take on new project,so feel free to Contact Me</p>
+            <p>I&apos;m currently available to take on new opportunities, so feel free to Contact Me</p>
             <div className="contact-details">
                 <div className="detail">
-                    <img src={mail_icon} alt="" /><p>mail4suraj2002@gmail.com</p>
+                    <img src={mail_icon} alt="" /><p>wahajahmad.alnafi@gmail.com</p>
                 </div>
                 <div className="detail">
-                    <img src={location_icon} alt="" /><p>Cuttack,odisha,India,753008</p>
+                    <img src={location_icon} alt="" /><p>Karachi, Pakistan</p>
                 </div>
                 <div className="detail">
-                    <img src={call_icon} alt="" /><p>+91 94376 00565</p>
+                    <img src={call_icon} alt="" /><p>+92 301-2529273</p>
                 </div>
             </div>
         </div>
         <form onSubmit={onSubmit} action="" className="contact-right">
             <label htmlFor="name">Your Name:</label>
-            <input type="text" name="name" placeholder='Enter your name:' />
+            <input type="text" name="name" placeholder='Enter your name:' required/>
             <label htmlFor="email">Your email:</label>
-            <input type="email" name="email" placeholder='Enter your email:' />
+            <input type="email" name="email" placeholder='Enter your email:' required/>
             <label htmlFor="message">Write your message here:</label>
-            <textarea name="message" rows='8' placeholder='Enter your Message Here:' id="message"></textarea>
+            <textarea name="message" rows='8' placeholder='Enter your Message Here:' id="message" required></textarea>
             <button type='submit' className="contact-submit">Submit Now</button>
         </form>
+        <span>{result}</span>
       </div>
     </div>
   )

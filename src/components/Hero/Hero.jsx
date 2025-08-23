@@ -75,7 +75,7 @@ const Hero = () => {
       <img src={pfp} alt="" />
       <div className="hero-content">
         <h1>
-          <span>Hey! I'm Wahaj Ahmed,</span><br/>
+          <span>Hey! I&apos;m Wahaj Ahmed,</span><br/>
           a DevOps Engineer
         </h1>
         <TypeAnimation

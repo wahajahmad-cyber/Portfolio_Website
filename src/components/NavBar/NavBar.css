@@ -129,7 +129,9 @@
 }
 
 /* Mobile Menu Button */
-/* Base display is handled by media queries */
+.nav-mob-open, .nav-mob-close {
+    display: none;
+}
 
 @media (max-width: 768px) {
     .navbar {

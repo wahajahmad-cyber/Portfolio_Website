@@ -220,11 +220,21 @@
         z-index: 2;
     }
 
-    .skills-format {
-        transform: translateY(-8px); /* Apply hover effect by default on mobile */
-        background: rgba(97, 219, 251, 0.05);
-        border-color: #61DBFB;
-        box-shadow: 0 0 30px rgba(97, 219, 251, 0.15);
+    .skills-format:active {
+        transform: scale(0.98); /* Add active state for touch feedback */
+        background: rgba(97, 219, 251, 0.1); /* Slightly darker on active */
+        border-color: #61DBFB; /* Maintain blue border */
+        box-shadow: 0 0 20px rgba(97, 219, 251, 0.2); /* Slightly less intense shadow */
+    }
+
+    /* Explicitly remove hover effects for touch devices */
+    @media (hover: none) {
+        .skills-format:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.03); /* Revert to default background */
+            border-color: rgba(255, 255, 255, 0.1); /* Revert to default border */
+            box-shadow: none;
+        }
     }
 
     .skills-format:active {

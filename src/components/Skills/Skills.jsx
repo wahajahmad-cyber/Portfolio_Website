@@ -1,16 +1,22 @@
 import { useEffect } from "react";
 import "./Skills.css";
 import ServicesData from "../../assets/services_data";
-import { FaReact, FaCode, FaAws, FaTerminal, FaDatabase, FaGithub } from "react-icons/fa";
+import { FaReact, FaCode, FaAws, FaTerminal, FaDatabase, FaGithub, FaDocker, FaGitAlt, FaShieldAlt, FaChartLine, FaPython, FaLinux } from "react-icons/fa";
 
-const icons = [
-  { component: FaReact, color: "#61DBFB" },
-  { component: FaCode, color: "#ff6f00" },
-  { component: FaAws, color: "#FF9900" },
-  { component: FaTerminal, color: "#00ff00" },
-  { component: FaDatabase, color: "#00758f" },
-  { component: FaGithub, color: "#ffff" }
-];
+const iconMap = {
+  FaReact: FaReact,
+  FaCode: FaCode,
+  FaAws: FaAws,
+  FaTerminal: FaTerminal,
+  FaDatabase: FaDatabase,
+  FaGithub: FaGithub,
+  FaDocker: FaDocker,
+  FaGitAlt: FaGitAlt,
+  FaShieldAlt: FaShieldAlt,
+  FaChartLine: FaChartLine,
+  FaPython: FaPython,
+  FaLinux: FaLinux,
+};
 
 const Skills = () => {
   useEffect(() => {
@@ -41,7 +47,7 @@ const Skills = () => {
       </div>
       <div className="skills-container">
         {ServicesData.map((service, index) => {
-          const IconComponent = icons[index]?.component || FaCode;
+          const IconComponent = iconMap[service.icon] || FaCode;
           return (
             <div key={index} className="skills-format fade-up">
               <div className="skill-header">

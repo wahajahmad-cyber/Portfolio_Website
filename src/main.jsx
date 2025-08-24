@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 
-// Import Vercel Analytics
-import { Analytics } from '@vercel/analytics'
+// Import Vercel Analytics for React
+import { Analytics } from '@vercel/analytics/react'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-    <Analytics />  {/* Add this line */}
+    <Analytics />  {/* Tracks page views automatically */}
   </React.StrictMode>
 )

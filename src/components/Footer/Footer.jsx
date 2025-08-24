@@ -1,5 +1,5 @@
-import user_icon from '../../assets/user_icon.svg'
 import './Footer.css'
+
 const Footer = () => {
   return (
     <footer className='footer'>
@@ -11,7 +11,8 @@ const Footer = () => {
           </div>
           <div className="footer-top-right">
               <div className="footer-email-input">
-                  <img src={user_icon} alt="user icon" />
+                  {/* Accessing from public folder */}
+                  <img src="/user_icon.svg" alt="user icon" />
                   <input type="email" placeholder='Enter your Email:' />
               </div>
               <div className="footer-subscribe">Subscribe</div>
@@ -19,7 +20,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className="footer-bottom">
-          <p className="footer-bottom-left">@Wahaj Ahmed.All rights reserved</p>
+          <p className="footer-bottom-left">@Wahaj Ahmed. All rights reserved</p>
           <div className="footer-bottom-right">
               <p>Terms of services</p>
               <p>Privacy Policy</p>

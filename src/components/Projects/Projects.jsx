@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './Projects.css'
-import arrow_icon from '../../assets/arrow_icon.svg'
 
 const desiredRepos = [
   "Wanderlust-Mega-Project",
@@ -35,6 +34,7 @@ const Projects = () => {
       <div className="projects-title">
         <h1>Projects<span>.</span></h1>
       </div>
+
       <div className="projects-container">
         {loading ? (
           <p>Loading repositories...</p>
@@ -50,10 +50,11 @@ const Projects = () => {
           ))
         )}
       </div>
+
       <div className="showmore">
         <a href="https://github.com/wahajahmad-cyber" target="_blank" rel="noopener noreferrer">
           <p>View More on GitHub</p>
-          <img src={arrow_icon} alt="" />
+          <img src="/arrow_icon.svg" alt="Arrow icon pointing right" />
         </a>
       </div>
     </div>

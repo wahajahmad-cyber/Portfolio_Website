@@ -1,10 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
-import theme_pattern from '../../assets/theme_pattern.svg';
-import mail_icon from '../../assets/mail_icon.svg';
-import location_icon from '../../assets/location_icon.svg';
-import call_icon from '../../assets/call_icon.svg';
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
@@ -30,7 +26,7 @@ const Contact = () => {
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
-      token: captchaValue, // matches API
+      token: captchaValue,
     };
 
     try {
@@ -70,7 +66,7 @@ const Contact = () => {
     <div id='contact' ref={contactRef} className='contact'>
       <div className="contact-title">
         <h1>Contact Me<span>.</span></h1>
-        <img src={theme_pattern} alt="" />
+        <img src="/theme_pattern.svg" alt="theme pattern" />
       </div>
 
       <div className="contact-section">
@@ -79,13 +75,13 @@ const Contact = () => {
           <p>I'm currently available to take on new opportunities, so feel free to contact me.</p>
           <div className="contact-details">
             <div className="detail">
-              <img src={mail_icon} alt="" /><p>wahajahmad.alnafi@gmail.com</p>
+              <img src="/mail_icon.svg" alt="mail" /><p>wahajahmad.alnafi@gmail.com</p>
             </div>
             <div className="detail">
-              <img src={location_icon} alt="" /><p>Karachi, Pakistan</p>
+              <img src="/location_icon.svg" alt="location" /><p>Karachi, Pakistan</p>
             </div>
             <div className="detail">
-              <img src={call_icon} alt="" /><p>+92 301-2529273</p>
+              <img src="/call_icon.svg" alt="call" /><p>+92 301-2529273</p>
             </div>
           </div>
         </div>

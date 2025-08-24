@@ -1,6 +1,4 @@
 import './Education.css'
-import siliconUni from '../../assets/silicon-uni.jpg'
-import davSchool from '../../assets/dav-school.jpg'
 
 const Education = () => {
   return (
@@ -14,7 +12,8 @@ const Education = () => {
           <div className="timeline-dot"></div>
           <div className="timeline-content">
             <div className="timeline-image">
-              <img src={siliconUni} alt="Silicon Institute" />
+              {/* Access directly from public folder */}
+              <img src="/silicon-uni.jpg" alt="Silicon Institute" />
             </div>
             <div className="timeline-text">
               <h3>Bachelor of Technology in Computer Science</h3>
@@ -30,7 +29,8 @@ const Education = () => {
           <div className="timeline-dot"></div>
           <div className="timeline-content">
             <div className="timeline-image">
-              <img src={davSchool} alt="DAV Public School" />
+              {/* Access directly from public folder */}
+              <img src="/dav-school.jpg" alt="DAV Public School" />
             </div>
             <div className="timeline-text">
               <h3>Higher Secondary Education</h3>

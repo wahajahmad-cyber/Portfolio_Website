@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import "./Skills.css";
-import theme_pattern from "../../assets/theme_pattern.svg";
 import ServicesData from "../../assets/services_data";
 import { FaReact, FaCode, FaAws, FaTerminal, FaDatabase, FaGithub } from "react-icons/fa";
 
@@ -38,7 +37,7 @@ const Skills = () => {
     <div id="skills" className="skills">
       <div className="skills-title">
         <h1>My Skills<span>.</span></h1>
-        <img src={theme_pattern} alt="Theme Pattern" />
+        <img src="/theme_pattern.svg" alt="Theme Pattern" />
       </div>
       <div className="skills-container">
         {ServicesData.map((service, index) => {

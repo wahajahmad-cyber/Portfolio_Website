@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 import './Hero.css'
-import pfp from '../../assets/Wahaj2.png'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import { TypeAnimation } from 'react-type-animation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faInstagram, faDiscord, faTelegram } from '@fortawesome/free-brands-svg-icons'
-import Resume from '../../assets/Wahaj-Resume.pdf'
 
 const Hero = () => {
   useEffect(() => {
@@ -51,11 +49,11 @@ const Hero = () => {
     <div id='home' className='hero'>
       <div id="particles-js"></div>
       
-      {/* Back to original image size (CSS will control dimensions) */}
+      {/* Image directly from public folder */}
       <img 
-        src={pfp} 
-        alt="Wahaj Ahmed - DevOps Engineer" 
-        loading="lazy" 
+        src="/Wahaj2.png"
+        alt="Wahaj Ahmed - DevOps Engineer"
+        loading="lazy"
         decoding="async"
       />
 
@@ -87,7 +85,7 @@ const Hero = () => {
             </AnchorLink>
           </div>
           <a 
-            href={Resume} 
+            href="/Wahaj-Resume.pdf"
             download="Wahaj-Resume.pdf"
             className="hero-resume"
             style={{ textDecoration: 'none' }}

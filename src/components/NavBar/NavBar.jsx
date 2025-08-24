@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import './NavBar.css';
-import menu_open from '../../assets/menu_open.svg';
-import menu_close from '../../assets/menu_close.svg';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+
+// ✅ Use public/ assets with process.env.PUBLIC_URL
+const menu_open = process.env.PUBLIC_URL + '/menu_open.svg';
+const menu_close = process.env.PUBLIC_URL + '/menu_close.svg';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');
@@ -29,7 +31,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'education', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Add offset for better accuracy
+      const scrollPosition = window.scrollY + 100;
 
       for (const sectionId of sections) {
         const section = document.getElementById(sectionId);

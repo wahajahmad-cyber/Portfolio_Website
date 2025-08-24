@@ -221,7 +221,6 @@
     }
 
     .skills-format:active {
-        transform: scale(0.98); /* Add active state for touch feedback */
         background: rgba(97, 219, 251, 0.1); /* Slightly darker on active */
         border-color: #61DBFB; /* Maintain blue border */
         box-shadow: 0 0 20px rgba(97, 219, 251, 0.2); /* Slightly less intense shadow */

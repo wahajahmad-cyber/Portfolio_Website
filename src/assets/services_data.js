@@ -44,7 +44,7 @@ const ServicesData = [
     {
         s_no: "08",
         s_name: "Operating Systems",
-        s_desc: "Experienced in working with Linux operating systems, specifically Ubuntu and Red Hat Enterprise Linux.",
+        s_desc: "Familiar with Linux operating systems, including Ubuntu and Red Hat Enterprise Linux.",
         icon: "FaLinux" // Assuming FaLinux exists or a similar icon
     }
 ];

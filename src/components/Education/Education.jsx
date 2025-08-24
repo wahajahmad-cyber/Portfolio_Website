@@ -13,13 +13,13 @@ const Education = () => {
           <div className="timeline-content">
             <div className="timeline-image">
               {/* Access directly from public folder */}
-              <img src="/silicon-uni.jpg" alt="Silicon Institute" />
+              <img src="/alnafi.jpg" alt="Al-Nafi International College" />
             </div>
             <div className="timeline-text">
-              <h3>Bachelor of Technology in Computer Science</h3>
-              <p className="timeline-date">2020 - 2024</p>
+              <h3>Diploma In AiOps (Eduqual RQF Level 6)</h3>
+              <p className="timeline-date">2023 - 2025</p>
               <p className="timeline-details">
-                Completed my B.Tech Graduation in Computer Science Engineering
+                Completed my Diploma in Artificial Intelligence Operations
               </p>
             </div>
           </div>
@@ -30,13 +30,13 @@ const Education = () => {
           <div className="timeline-content">
             <div className="timeline-image">
               {/* Access directly from public folder */}
-              <img src="/dav-school.jpg" alt="DAV Public School" />
+              <img src="/smartcollege.jpg" alt="The Smart College" />
             </div>
             <div className="timeline-text">
-              <h3>Higher Secondary Education</h3>
-              <p className="timeline-date">2018 - 2020</p>
+              <h3>Higher Secondary School Certificate (HSSC)</h3>
+              <p className="timeline-date">2021 - 2023</p>
               <p className="timeline-details">
-                DAV Public School, CDA, Cuttack
+                The Smart College, Karachi
               </p>
             </div>
           </div>

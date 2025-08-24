@@ -221,31 +221,14 @@
     }
 
     .skills-format {
-        gap: 20px;
-        padding: 2.5rem 1.5rem;
-        min-height: auto;
         transform: translateY(-8px); /* Apply hover effect by default on mobile */
         background: rgba(97, 219, 251, 0.05);
         border-color: #61DBFB;
         box-shadow: 0 0 30px rgba(97, 219, 251, 0.15);
-        transition: all 0.4s ease; /* Keep transition for active state */
-        position: relative;
-        z-index: 2;
     }
 
     .skills-format:active {
         transform: scale(0.98); /* Add active state for touch feedback */
-        background: rgba(97, 219, 251, 0.1); /* Slightly darker on active */
-        border-color: #61DBFB; /* Maintain blue border */
-        box-shadow: 0 0 20px rgba(97, 219, 251, 0.2); /* Slightly less intense shadow */
-    }
-
-    /* Remove the :hover rule for mobile as the default state is now the hover state */
-    .skills-format:hover {
-        transform: translateY(-8px); /* Keep the default hover transform */
-        background: rgba(97, 219, 251, 0.05);
-        border-color: #61DBFB;
-        box-shadow: 0 0 30px rgba(97, 219, 251, 0.15);
     }
 
     /* Always show icon colors and glow on mobile */

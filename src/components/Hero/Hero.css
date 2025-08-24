@@ -3,32 +3,31 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0px 100px; /* Changed from 200px */
-    min-height: 100vh; /* Changed from calc(100vh - 20px) to use full viewport height */
-    height: 100vh; /* Added to ensure consistent full height */
+    padding: 0px 100px;
+    min-height: 100vh;
+    height: 100vh;
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
     margin-bottom: -5%;
     margin-right: -100px;
-    z-index: 1;  /* Add z-index to keep hero content above particles */
+    z-index: 1; /* Keep hero content above particles */
 }
 
 #particles-js {
-    position: fixed;  /* Changed from absolute to fixed */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;  /* Changed from 100% to 100vw */
-    height: 100vh;  /* Changed from 100% to 100vh */
-    z-index: 0;  /* Changed from 1 to 0 to stay behind navbar */
+    width: 100vw;
+    height: 100vh;
+    z-index: 0; /* Stay behind navbar + hero */
 }
 
 .hero img {
-    width: 38%; /* Increased from 500px */
+    width: 38%; /* Large profile image */
     border-radius: 50%;
     object-fit: cover;
     margin-top: -8%;
-    margin-bottom: 0;
     position: relative;
     z-index: 2;
 }
@@ -37,17 +36,17 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Increased from 20px */
-    max-width: 800px; /* Increased from 700px */
+    gap: 30px;
+    max-width: 800px;
     margin-top: -5%;
     text-align: center;
-    padding: 0 30px; /* Increased padding */
+    padding: 0 30px;
     position: relative;
     z-index: 2;
 }
 
 .hero h1 {
-    font-size: 64px; /* Increased from 56px */
+    font-size: 64px;
     line-height: 1.2;
     margin: 0;
 }
@@ -62,10 +61,10 @@
 .hero p {
     width: 100%;
     text-align: center;
-    font-size: 24px; /* Increased from 20px */
+    font-size: 24px;
     line-height: 1.7;
-    min-height: calc(1.7em * 2); /* Default: 2 lines tall in web view */
-    margin-bottom: 30px; /* Increased from 20px */
+    min-height: calc(1.7em * 2);
+    margin-bottom: 30px;
     color: #888;
     transition: transform 0.5s ease-in-out;
 }
@@ -74,10 +73,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 35px; /* Increased from 25px */
-    font-size: 24px; /* Increased from 22px */
+    gap: 35px;
+    font-size: 24px;
     font-weight: 500;
-    margin-top: 30px; /* Increased from 20px */
     margin-top: -5%;
 }
 
@@ -90,24 +88,24 @@
 
 .hero-connect a {
     display: inline-block;
-    padding: 32px 60px; /* Increased from 28px 50px */
+    padding: 32px 60px;
     color: #fff;
     text-decoration: none;
 }
 
 .hero-resume {
-    padding: 32px 90px; /* Increased from 28px 80px */
+    padding: 32px 90px;
     border-radius: 50px;
     border: 2px solid #fff;
     cursor: pointer;
     color: #fff;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .hero-connect:hover {
     transform: scale(1.05);
     background: #fff;
-    color: #1a1a1a;
 }
 
 .hero-connect:hover a {
@@ -124,17 +122,18 @@
 .hero-social {
     display: flex;
     justify-content: center;
-    gap: 45px; /* Increased from 35px */
+    gap: 45px;
+    margin-top: 20px;
 }
 
 .hero-social a {
     color: #666;
-    font-size: 45px; /* Increased from 40px */
+    font-size: 45px;
     transition: all 0.3s ease;
     position: relative;
 }
 
-/* Brand color glows on hover */
+/* Brand hover glows */
 .hero-social a[href*="github"]:hover {
     color: #fff;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
@@ -144,13 +143,6 @@
 .hero-social a[href*="linkedin"]:hover {
     color: #0077b5;
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.8));
-    transform: translateY(-3px);
-}
-
-/* Brand color glows on hover */
-.hero-social a[href*="twitter"]:hover {
-    color: #fff;  /* Changed to white */
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     transform: translateY(-3px);
 }
 
@@ -172,63 +164,53 @@
     transform: translateY(-3px);
 }
 
-/* Update the Twitter/X hover selector for web view */
 .hero-social a[href*="x.com"]:hover {
     color: #fff;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     transform: translateY(-3px);
 }
 
-/* Remove the underline effect */
 .hero-social a::after {
-    display: none;  
+    display: none;
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media(max-width: 768px) {
     .hero {
         flex-direction: column;
-        padding: 10% 0 0;  /* Changed from 10% 20px 0 - removed horizontal padding */
-        min-height: 100vh; /* Changed from auto to full viewport height */
-        height: 100vh; /* Changed from auto to full viewport height */
-        margin-bottom: -30%;
-        margin-right: 0;   /* Reset right margin */
-        margin-top: -8%;
+        padding: 10% 0 0;
+        min-height: 100vh;
+        height: 100vh;
+        margin: -8% 0 -30% 0;
     }
 
     .hero img {
         width: 73%;
-        margin-top:-10px;
         margin: 0 0 20px 0;
     }
 
     .hero h1 {
-        font-size: 36px; /* Reduced from 42px */
+        font-size: 36px;
         text-align: center;
         line-height: 1.3;
     }
 
     .hero p {
-        text-align: center;
-        font-size: 16px; /* Reduced from 18px for better readability */
-        line-height: 1.5; /* Reduced from 1.6 for tighter spacing */
-        min-height: calc(1.6em * 3); /* Remove fixed height constraint */
-        margin: 0 0 25px 0; /* Adjusted margins */
-        padding: 0 10px; /* Added padding for better edge spacing */
-        max-width: 90%; /* Limit width on mobile */
+        font-size: 16px;
+        line-height: 1.5;
+        min-height: calc(1.6em * 3);
+        margin: 0 0 25px 0;
+        padding: 0 10px;
+        max-width: 90%;
         margin-left: auto;
         margin-right: auto;
-        color: #888;
-        transition: transform 0.5s ease-in-out;
     }
 
     .hero-content {
-        gap: 10px; /* Reduced from 0 to add some spacing */
-        padding: 0;        /* Reset padding */
-        min-height: auto;
+        gap: 10px;
+        padding: 0;
         width: 100%;
-        box-sizing: border-box;
-        margin: 0 auto;    /* Center content */
+        margin: 0 auto;
     }
 
     .hero-action {
@@ -236,9 +218,6 @@
         margin-top: -10px;
         flex-direction: row;
         justify-content: center;
-        width: auto;
-        position: relative;
-        bottom: 0;
     }
 
     .hero-connect, .hero-resume {
@@ -247,125 +226,31 @@
         font-weight: 500;
     }
 
-    .hero-connect {
-        padding: 0;
-    }
-
     .hero-connect a,
     .hero-resume {
         padding: 10px 25px;
     }
 
-    .hero-connect {
-        background: grey;
-    }
-
-    .hero-resume {
-        border: 1px solid #fff;
-    }
-
-    .hero-connect:hover, .hero-resume:hover {
-        transform: translateY(-2px);
-    }
-
     .hero-social {
         gap: 35px;
         margin-top: 25px;
-        margin-bottom: 39%; /* Remove bottom margin */
+        margin-bottom: 39%;
     }
 
     .hero-social a {
         font-size: 32px;
     }
 
-    /* Maintain glow effects on mobile */
-    .hero-social a[href*="github"]:hover {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
-    }
-
-    .hero-social a[href*="linkedin"]:hover {
-        color: #0077b5;
-        filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.8));
-    }
-
-    .hero-social a[href*="twitter"]:hover {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
-    }
-
-    .hero-social a[href*="instagram"]:hover {
-        color: #E4405F;
-        filter: drop-shadow(0 0 8px rgba(228, 64, 95, 0.8));
-    }
-
-    .hero-social a[href*="discord"]:hover {
-        color: #7289DA;
-        filter: drop-shadow(0 0 8px rgba(114, 137, 218, 0.8));
-    }
-
-    .hero-social a[href*="x.com"]:hover {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
-    }
-
-    .hero-social a[href*="t.me"]:hover {
-        color: #24A1DE;
-        filter: drop-shadow(0 0 8px rgba(36, 161, 222, 0.8));
-    }
-
-    .hero-social a[href*="x.com"] {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-    }
-
-    .hero-social a::after {
-        display: none;
-    }
-
-    /* Default brand colors for mobile */
-    .hero-social a[href*="github"] {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-    }
-
-    .hero-social a[href*="linkedin"] {
-        color: #0077b5;
-        filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.4));
-    }
-
-    .hero-social a[href*="twitter"] {
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-    }
-
-    .hero-social a[href*="instagram"] {
-        color: #E4405F;
-        filter: drop-shadow(0 0 8px rgba(228, 64, 95, 0.4));
-    }
-
-    .hero-social a[href*="discord"] {
-        color: #7289DA;
-        filter: drop-shadow(0 0 8px rgba(114, 137, 218, 0.4));
-    }
-
-    .hero-social a[href*="t.me"] {
-        color: #24A1DE;
-        filter: drop-shadow(0 0 8px rgba(36, 161, 222, 0.4));
-    }
-
-    .hero-social a::after {
-        display: none;
-    }
-
-    /* Remove the transform animation that was causing space */
-    .hero:hover .hero p {
-        transform: none;
-    }
+    /* Mobile hover glows (same brand colors) */
+    .hero-social a[href*="github"]:hover { color: #fff; }
+    .hero-social a[href*="linkedin"]:hover { color: #0077b5; }
+    .hero-social a[href*="instagram"]:hover { color: #E4405F; }
+    .hero-social a[href*="discord"]:hover { color: #7289DA; }
+    .hero-social a[href*="t.me"]:hover { color: #24A1DE; }
+    .hero-social a[href*="x.com"]:hover { color: #fff; }
 }
 
 .nav {
     position: relative;
-    z-index: 1;  /* Add this to keep navbar above particles */
+    z-index: 1; /* Navbar above particles */
 }
-

@@ -51,15 +51,12 @@ const Hero = () => {
     <div id='home' className='hero'>
       <div id="particles-js"></div>
       
-      {/* Optimized profile image */}
+      {/* Back to original image size (CSS will control dimensions) */}
       <img 
         src={pfp} 
         alt="Wahaj Ahmed - DevOps Engineer" 
         loading="lazy" 
         decoding="async"
-        width="220"
-        height="220"
-        style={{ maxWidth: "220px", height: "auto" }}
       />
 
       <div className="hero-content">

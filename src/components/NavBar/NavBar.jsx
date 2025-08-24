@@ -3,8 +3,8 @@ import './NavBar.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 // ✅ Use public/ assets with process.env.PUBLIC_URL
-const menu_open = process.env.PUBLIC_URL + '/menu_open.svg';
-const menu_close = process.env.PUBLIC_URL + '/menu_close.svg';
+const menu_open = '/menu_open.svg';
+const menu_close = '/menu_close.svg';
 
 const Navbar = () => {
   const [menu, setMenu] = useState('home');

@@ -12,27 +12,11 @@ const Hero = () => {
     if (window.particlesJS) {
       window.particlesJS('particles-js', {
         particles: {
-          number: {
-            value: 80,
-            density: {
-              enable: true,
-              value_area: 800
-            }
-          },
-          color: {
-            value: '#888888'
-          },
-          shape: {
-            type: 'circle'
-          },
-          opacity: {
-            value: 0.5,
-            random: false
-          },
-          size: {
-            value: 3,
-            random: true
-          },
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: '#888888' },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5, random: false },
+          size: { value: 3, random: true },
           line_linked: {
             enable: true,
             distance: 150,
@@ -53,31 +37,37 @@ const Hero = () => {
         interactivity: {
           detect_on: 'canvas',
           events: {
-            onhover: {
-              enable: true,
-              mode: 'repulse'
-            },
-            onclick: {
-              enable: true,
-              mode: 'push'
-            },
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' },
             resize: true
           }
         },
         retina_detect: true
-      });
+      })
     }
-  }, []);
+  }, [])
 
   return (
     <div id='home' className='hero'>
       <div id="particles-js"></div>
-      <img src={pfp} alt="" />
+      
+      {/* Optimized profile image */}
+      <img 
+        src={pfp} 
+        alt="Wahaj Ahmed - DevOps Engineer" 
+        loading="lazy" 
+        decoding="async"
+        width="220"
+        height="220"
+        style={{ maxWidth: "220px", height: "auto" }}
+      />
+
       <div className="hero-content">
         <h1>
           <span>Hey! I&apos;m Wahaj Ahmed,</span><br/>
           a DevOps Engineer
         </h1>
+
         <TypeAnimation
           sequence={[
             "I'm a DevOps Engineer, I have skills that might help you to grow your company",
@@ -92,9 +82,12 @@ const Hero = () => {
           repeat={Infinity}
           style={{ fontSize: '22px', color: '#888', lineHeight: '1.6' }}
         />
+
         <div className="hero-action">
           <div className="hero-connect">
-            <AnchorLink className='acnchor-link' offset={50} href='#contact'>Connect with me</AnchorLink>
+            <AnchorLink className='anchor-link' offset={50} href='#contact'>
+              Connect with me
+            </AnchorLink>
           </div>
           <a 
             href={Resume} 
@@ -108,6 +101,7 @@ const Hero = () => {
             My Resume
           </a>
         </div>
+
         <div className="hero-social">
           <a href="https://www.linkedin.com/in/wahaj-ahmed-ansari-00b5752b9" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} />

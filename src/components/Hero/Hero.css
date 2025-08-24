@@ -241,13 +241,12 @@
         font-size: 32px;
     }
 
-    /* Mobile hover glows (same brand colors) */
-    .hero-social a[href*="github"]:hover { color: #fff; }
-    .hero-social a[href*="linkedin"]:hover { color: #0077b5; }
-    .hero-social a[href*="instagram"]:hover { color: #E4405F; }
-    .hero-social a[href*="discord"]:hover { color: #7289DA; }
-    .hero-social a[href*="t.me"]:hover { color: #24A1DE; }
-    .hero-social a[href*="x.com"]:hover { color: #fff; }
+    .hero-social a[href*="github"] { color: #fff; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); transform: translateY(-3px); }
+    .hero-social a[href*="linkedin"] { color: #0077b5; filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.8)); transform: translateY(-3px); }
+    .hero-social a[href*="instagram"] { color: #E4405F; filter: drop-shadow(0 0 8px rgba(228, 64, 95, 0.8)); transform: translateY(-3px); }
+    .hero-social a[href*="discord"] { color: #7289DA; filter: drop-shadow(0 0 8px rgba(114, 137, 218, 0.8)); transform: translateY(-3px); }
+    .hero-social a[href*="t.me"] { color: #24A1DE; filter: drop-shadow(0 0 8px rgba(36, 161, 222, 0.8)); transform: translateY(-3px); }
+    .hero-social a[href*="x.com"] { color: #fff; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); transform: translateY(-3px); }
 }
 
 .nav {

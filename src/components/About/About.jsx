@@ -1,6 +1,4 @@
 import './About.css'
-import theme_pattern from '../../assets/theme_pattern.svg'
-import pfp from '../../assets/Wahaj.jpeg'
 
 const About = () => {
   return (
@@ -9,13 +7,14 @@ const About = () => {
         <h1>
           About Me<span>.</span>
         </h1>
-        <img src={theme_pattern} alt="theme pattern" />  
+        {/* Access directly from /public */}
+        <img src="/theme_pattern.svg" alt="theme pattern" loading="lazy" />  
       </div>
 
       <div className="about-sections">
         {/* Left: Profile Image */}
         <div className="about-left">
-          <img src={pfp} alt="Wahaj Ahmed" className="about-image" />
+          <img src="/Wahaj.jpeg" alt="Wahaj Ahmed" className="about-image" loading="lazy" />
         </div>
 
         {/* Right: Content */}

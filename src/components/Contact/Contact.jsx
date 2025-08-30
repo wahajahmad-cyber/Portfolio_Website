@@ -10,6 +10,7 @@ const Contact = () => {
   const [formInvalid, setFormInvalid] = useState(false); // To track invalid submission attempts
   const [isFormComplete, setIsFormComplete] = useState(false); // To track if all fields are filled for hover effect
   const contactRef = useRef(null);
+  const captchaRef = useRef(null); // Ref for ReCAPTCHA component
 
   const checkFormCompletion = (name, email, message, captcha) => {
     setIsFormComplete(!!name && !!email && !!message && !!captcha);
@@ -68,6 +69,10 @@ const Contact = () => {
         setSuccess(true);
         e.target.reset();
         setCaptchaValue(null);
+        if (captchaRef.current) {
+          captchaRef.current.reset();
+        }
+        checkFormCompletion('', '', '', null); // Update form completion state after reset
       } else {
         setError(data.message || 'Something went wrong. Please try again.');
       }
@@ -128,6 +133,7 @@ const Contact = () => {
             <ReCAPTCHA
               sitekey={siteKey}
               onChange={handleCaptchaChange}
+              ref={captchaRef}
             />
           ) : (
             <p style={{ color: 'red' }}>

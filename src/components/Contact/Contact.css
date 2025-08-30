@@ -149,6 +149,11 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+.input-error {
+    border-color: #ff0000 !important;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
 .contact-submit {
     align-self: flex-start;
     padding: 15px 40px;

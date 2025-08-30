@@ -10,6 +10,7 @@ const Contact = () => {
   const [formInvalid, setFormInvalid] = useState(false); // To track invalid submission attempts
   const [isFormComplete, setIsFormComplete] = useState(false); // To track if all fields are filled for hover effect
   const [formSubmitted, setFormSubmitted] = useState(false); // To track if the form has been successfully submitted
+  const [invalidFields, setInvalidFields] = useState({}); // To track which fields are invalid
   const contactRef = useRef(null);
   const captchaRef = useRef(null); // Ref for ReCAPTCHA component
 
@@ -26,6 +27,7 @@ const Contact = () => {
     setCaptchaValue(value);
     setFormInvalid(false); // Reset error state when captcha is changed
     setFormSubmitted(false); // Reset formSubmitted when user interacts with form
+    setInvalidFields(prev => ({ ...prev, captcha: false })); // Clear captcha invalid state
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
@@ -35,6 +37,7 @@ const Contact = () => {
   const handleInputChange = (e) => {
     setFormInvalid(false); // Reset error state on input change
     setFormSubmitted(false); // Reset formSubmitted when user interacts with form
+    setInvalidFields(prev => ({ ...prev, [e.target.name]: false })); // Clear specific field invalid state
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
@@ -52,16 +55,24 @@ const Contact = () => {
     if (!name || !email || !message || !captchaValue) {
       setError('Please fill out all fields and complete the CAPTCHA.');
       setFormInvalid(true);
+      setInvalidFields({
+        name: !name,
+        email: !email,
+        message: !message,
+        captcha: !captchaValue,
+      });
       return;
     }
 
     if (!validateEmail(email)) {
       setError('Please enter a valid email address.');
       setFormInvalid(true);
+      setInvalidFields(prev => ({ ...prev, email: true }));
       return;
     }
 
     setFormInvalid(false);
+    setInvalidFields({}); // Clear invalid fields on valid submission attempt
     const formData = {
       name,
       email,
@@ -136,20 +147,22 @@ const Contact = () => {
           {error && <div className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
-          <input type="text" name="name" placeholder="Enter your name:" required onChange={handleInputChange} />
+          <input type="text" name="name" placeholder="Enter your name:" required onChange={handleInputChange} className={invalidFields.name ? 'input-error' : ''} />
 
           <label htmlFor="email">Your Email:</label>
-          <input type="email" name="email" placeholder="Enter your email:" required onChange={handleInputChange} />
+          <input type="email" name="email" placeholder="Enter your email:" required onChange={handleInputChange} className={invalidFields.email ? 'input-error' : ''} />
 
           <label htmlFor="message">Write your message here:</label>
-          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required onChange={handleInputChange} />
+          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required onChange={handleInputChange} className={invalidFields.message ? 'input-error' : ''} />
 
           {siteKey ? (
-            <ReCAPTCHA
-              sitekey={siteKey}
-              onChange={handleCaptchaChange}
-              ref={captchaRef}
-            />
+            <div className={invalidFields.captcha ? 'input-error' : ''}>
+              <ReCAPTCHA
+                sitekey={siteKey}
+                onChange={handleCaptchaChange}
+                ref={captchaRef}
+              />
+            </div>
           ) : (
             <p style={{ color: 'red' }}>
               ⚠️ ReCAPTCHA site key is missing! Please set VITE_RECAPTCHA_SITE_KEY in your .env file.

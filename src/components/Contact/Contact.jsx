@@ -21,7 +21,9 @@ const Contact = () => {
   };
 
   const checkFormCompletion = (name, email, message, captcha) => {
-    setIsFormComplete(!!name && validateEmail(email) && !!message && !!captcha);
+    const isComplete = !!name && validateEmail(email) && !!message && !!captcha;
+    console.log('checkFormCompletion - isComplete:', isComplete, 'name:', !!name, 'emailValid:', validateEmail(email), 'message:', !!message, 'captcha:', !!captcha);
+    setIsFormComplete(isComplete);
   };
 
   const handleCaptchaChange = (value) => {
@@ -31,6 +33,7 @@ const Contact = () => {
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
+    console.log('handleCaptchaChange - name:', name, 'email:', email, 'message:', message, 'captcha:', value);
     checkFormCompletion(name, email, message, value);
   };
 
@@ -41,6 +44,7 @@ const Contact = () => {
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
+    console.log('handleInputChange - name:', name, 'email:', email, 'message:', message, 'captcha:', captchaValue);
     checkFormCompletion(name, email, message, captchaValue);
   };
 

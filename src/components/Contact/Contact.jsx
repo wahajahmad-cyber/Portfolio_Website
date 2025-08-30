@@ -9,6 +9,7 @@ const Contact = () => {
   const [captchaValue, setCaptchaValue] = useState(null);
   const [formInvalid, setFormInvalid] = useState(false); // To track invalid submission attempts
   const [isFormComplete, setIsFormComplete] = useState(false); // To track if all fields are filled for hover effect
+  const [formSubmitted, setFormSubmitted] = useState(false); // To track if the form has been successfully submitted
   const contactRef = useRef(null);
   const captchaRef = useRef(null); // Ref for ReCAPTCHA component
 
@@ -24,6 +25,7 @@ const Contact = () => {
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
     setFormInvalid(false); // Reset error state when captcha is changed
+    setFormSubmitted(false); // Reset formSubmitted when user interacts with form
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
@@ -32,6 +34,7 @@ const Contact = () => {
 
   const handleInputChange = (e) => {
     setFormInvalid(false); // Reset error state on input change
+    setFormSubmitted(false); // Reset formSubmitted when user interacts with form
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
@@ -78,13 +81,13 @@ const Contact = () => {
 
       if (response.ok) {
         setSuccess(true);
-        setIsFormComplete(true); // Ensure button state is complete after successful submission
+        setFormSubmitted(true); // Mark form as successfully submitted
+        setIsFormComplete(false); // Reset form completion state as fields are cleared
         e.target.reset();
         setCaptchaValue(null);
         if (captchaRef.current) {
           captchaRef.current.reset();
         }
-        // No need to call checkFormCompletion here, as we explicitly set isFormComplete to true
       } else {
         setError(data.message || 'Something went wrong. Please try again.');
       }
@@ -155,7 +158,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            className={`contact-submit ${isFormComplete ? '' : 'contact-submit-incomplete'}`}
+            className={`contact-submit ${!isFormComplete && !formSubmitted ? 'contact-submit-incomplete' : ''}`}
             disabled={loading || !siteKey}
           >
             {loading ? 'Sending...' : 'Submit Now'}

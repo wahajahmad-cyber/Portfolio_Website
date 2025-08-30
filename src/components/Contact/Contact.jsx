@@ -78,12 +78,13 @@ const Contact = () => {
 
       if (response.ok) {
         setSuccess(true);
+        setIsFormComplete(true); // Ensure button state is complete after successful submission
         e.target.reset();
         setCaptchaValue(null);
         if (captchaRef.current) {
           captchaRef.current.reset();
         }
-        checkFormCompletion('', '', '', null); // Update form completion state after reset
+        // No need to call checkFormCompletion here, as we explicitly set isFormComplete to true
       } else {
         setError(data.message || 'Something went wrong. Please try again.');
       }

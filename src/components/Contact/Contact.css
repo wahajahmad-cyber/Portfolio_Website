@@ -65,9 +65,25 @@
 }
 
 .contact-left h1 {
-    font-size: 36px; /* Reduced from 42px */
-    font-weight: 600;
-    color: #888;
+    font-size: 42px; /* Increased size to match footer */
+    font-weight: bold;
+    background: linear-gradient(
+        to right,
+        #fff 20%,
+        #888 30%,
+        #fff 70%,
+        #888 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    position: relative;
+    z-index: 2;
 }
 
 .contact-left p {

@@ -1,41 +1,21 @@
 import { useEffect } from "react";
 import "./Skills.css";
 import ServicesData from "../../assets/services_data";
-import { FaReact, FaCode, FaAws, FaTerminal, FaDatabase, FaGithub, FaDocker, FaGitAlt, FaShieldAlt, FaChartLine, FaPython, FaLinux } from "react-icons/fa";
-
-const iconMap = {
-  FaReact: FaReact,
-  FaCode: FaCode,
-  FaAws: FaAws,
-  FaTerminal: FaTerminal,
-  FaDatabase: FaDatabase,
-  FaGithub: FaGithub,
-  FaDocker: FaDocker,
-  FaGitAlt: FaGitAlt,
-  FaShieldAlt: FaShieldAlt,
-  FaChartLine: FaChartLine,
-  FaPython: FaPython,
-  FaLinux: FaLinux,
-};
 
 const Skills = () => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
+          entry.target.classList.add("show");
         } else {
-          entry.target.classList.remove('show'); // Remove class when out of view
+          entry.target.classList.remove("show");
         }
       });
-    }, { 
-      threshold: 0.1, // Reduced threshold for faster trigger
-      rootMargin: '50px' // Added margin to trigger earlier
-    });
+    }, { threshold: 0.1, rootMargin: "50px" });
 
-    const skillCards = document.querySelectorAll('.skills-format');
+    const skillCards = document.querySelectorAll(".skills-format");
     skillCards.forEach(card => observer.observe(card));
-
     return () => observer.disconnect();
   }, []);
 
@@ -47,15 +27,12 @@ const Skills = () => {
       </div>
       <div className="skills-container">
         {ServicesData.map((service, index) => {
-          const IconComponent = iconMap[service.icon] || FaCode;
+          const IconComponent = service.icon;
           return (
             <div key={index} className="skills-format fade-up">
               <div className="skill-header">
                 <span className="skill-number">{service.s_no}</span>
-                <IconComponent
-                  size={48}
-                  className="skill-icon"
-                />
+                <IconComponent size={48} className="skill-icon" />
               </div>
               <h2>{service.s_name}</h2>
               <p>{service.s_desc}</p>

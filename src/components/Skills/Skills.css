@@ -118,10 +118,10 @@
     text-shadow: 0 0 15px #D33834;
 }
 
-.skills-format:nth-child(4):hover .skill-icon { 
-    color: #00ff00;
-    filter: drop-shadow(0 0 8px #00ff00) brightness(1.2);
-    text-shadow: 0 0 15px #00ff00;
+.skills-format:nth-child(4):hover .skill-icon { /* Security */
+    color: #0D6EFD;
+    filter: drop-shadow(0 0 8px #0D6EFD) brightness(1.2);
+    text-shadow: 0 0 15px #0D6EFD;
 }
 
 .skills-format:nth-child(5):hover .skill-icon { /* Grafana */
@@ -262,11 +262,11 @@
         text-shadow: 0 0 15px #D33834, 0 0 25px #D33834;
     }
 
-    .skills-format:nth-child(4) .skill-icon { 
-        color: #00ff00;
-        text-shadow: 0 0 12px #00ff00;
-        filter: drop-shadow(0 0 8px #00ff00) brightness(1.5);
-        text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+    .skills-format:nth-child(4) .skill-icon { /* Security */
+        color: #0D6EFD;
+        text-shadow: 0 0 12px #0D6EFD;
+        filter: drop-shadow(0 0 8px #0D6EFD) brightness(1.5);
+        text-shadow: 0 0 15px #0D6EFD, 0 0 25px #0D6EFD;
     }
 
     .skills-format:nth-child(5) .skill-icon { /* Grafana */

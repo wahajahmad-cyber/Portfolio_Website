@@ -7,25 +7,50 @@ const Contact = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [captchaValue, setCaptchaValue] = useState(null);
+  const [formInvalid, setFormInvalid] = useState(false); // To track invalid submission attempts
+  const [isFormComplete, setIsFormComplete] = useState(false); // To track if all fields are filled for hover effect
   const contactRef = useRef(null);
+
+  const checkFormCompletion = (name, email, message, captcha) => {
+    setIsFormComplete(!!name && !!email && !!message && !!captcha);
+  };
 
   const handleCaptchaChange = (value) => {
     setCaptchaValue(value);
+    setFormInvalid(false); // Reset error state when captcha is changed
+    const name = contactRef.current.querySelector('[name="name"]').value.trim();
+    const email = contactRef.current.querySelector('[name="email"]').value.trim();
+    const message = contactRef.current.querySelector('[name="message"]').value.trim();
+    checkFormCompletion(name, email, message, value);
+  };
+
+  const handleInputChange = (e) => {
+    setFormInvalid(false); // Reset error state on input change
+    const name = contactRef.current.querySelector('[name="name"]').value.trim();
+    const email = contactRef.current.querySelector('[name="email"]').value.trim();
+    const message = contactRef.current.querySelector('[name="message"]').value.trim();
+    checkFormCompletion(name, email, message, captchaValue);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
-    if (!captchaValue) {
-      alert('Please verify that you are not a robot.');
+    const name = e.target.name.value.trim();
+    const email = e.target.email.value.trim();
+    const message = e.target.message.value.trim();
+
+    if (!name || !email || !message || !captchaValue) {
+      setError('Please fill out all fields and complete the CAPTCHA.');
+      setFormInvalid(true);
       return;
     }
 
+    setFormInvalid(false);
     const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
+      name,
+      email,
+      message,
       token: captchaValue,
     };
 
@@ -86,18 +111,18 @@ const Contact = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="contact-right">
+        <form onSubmit={handleSubmit} className="contact-right" noValidate>
           {success && <div className="success-message">✅ Your message has been sent successfully!</div>}
           {error && <div className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
-          <input type="text" name="name" placeholder="Enter your name:" required />
+          <input type="text" name="name" placeholder="Enter your name:" required onChange={handleInputChange} />
 
           <label htmlFor="email">Your Email:</label>
-          <input type="email" name="email" placeholder="Enter your email:" required />
+          <input type="email" name="email" placeholder="Enter your email:" required onChange={handleInputChange} />
 
           <label htmlFor="message">Write your message here:</label>
-          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required />
+          <textarea name="message" rows="8" placeholder="Enter your Message Here:" required onChange={handleInputChange} />
 
           {siteKey ? (
             <ReCAPTCHA
@@ -110,7 +135,11 @@ const Contact = () => {
             </p>
           )}
 
-          <button type="submit" className="contact-submit" disabled={loading || !siteKey}>
+          <button
+            type="submit"
+            className={`contact-submit ${isFormComplete ? '' : 'contact-submit-incomplete'}`}
+            disabled={loading || !siteKey}
+          >
             {loading ? 'Sending...' : 'Submit Now'}
           </button>
         </form>

@@ -1,4 +1,5 @@
-import { FaAws, FaDocker, FaJenkins, FaShieldAlt, FaChartLine, FaLinux } from "react-icons/fa";
+import { FaAws, FaDocker, FaJenkins, FaShieldAlt, FaLinux } from "react-icons/fa";
+import { SiGrafana } from "react-icons/si";
 
 const ServicesData = [
   {
@@ -29,7 +30,7 @@ const ServicesData = [
     s_no: "05",
     s_name: "Monitoring & Observability",
     s_desc: "Good understanding of monitoring systems with Prometheus and creating dashboards in Grafana. Familiar with the ELK Stack (Elasticsearch, Logstash, Kibana) for centralized logging and improving system visibility.",
-    icon: FaChartLine
+    icon: SiGrafana
   },
   {
     s_no: "06",

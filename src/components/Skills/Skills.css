@@ -124,10 +124,10 @@
     text-shadow: 0 0 15px #00ff00;
 }
 
-.skills-format:nth-child(5):hover .skill-icon { 
-    color: #00758f;
-    filter: drop-shadow(0 0 8px #00758f) brightness(1.2);
-    text-shadow: 0 0 15px #00758f;
+.skills-format:nth-child(5):hover .skill-icon { /* Grafana */
+    color: #F15B2A;
+    filter: drop-shadow(0 0 8px #F15B2A) brightness(1.2);
+    text-shadow: 0 0 15px #F15B2A;
 }
 
 .skills-format:nth-child(6):hover .skill-icon { /* Linux */
@@ -269,11 +269,11 @@
         text-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
     }
 
-    .skills-format:nth-child(5) .skill-icon { 
-        color: #00758f;
-        text-shadow: 0 0 12px #00758f;
-        filter: drop-shadow(0 0 8px #00758f) brightness(1.5);
-        text-shadow: 0 0 15px #00758f, 0 0 25px #00758f;
+    .skills-format:nth-child(5) .skill-icon { /* Grafana */
+        color: #F15B2A;
+        text-shadow: 0 0 12px #F15B2A;
+        filter: drop-shadow(0 0 8px #F15B2A) brightness(1.5);
+        text-shadow: 0 0 15px #F15B2A, 0 0 25px #F15B2A;
     }
 
     .skills-format:nth-child(6) .skill-icon { /* Linux */

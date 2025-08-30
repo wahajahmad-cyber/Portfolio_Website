@@ -109,7 +109,7 @@
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    height: 100%;
+    min-height: 230px; /* Set a minimum height for uniform cards */
     display: flex;
     flex-direction: row;
     overflow: hidden;

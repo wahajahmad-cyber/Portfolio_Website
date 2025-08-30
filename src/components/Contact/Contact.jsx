@@ -13,6 +13,7 @@ const Contact = () => {
   const [invalidFields, setInvalidFields] = useState({}); // To track which fields are invalid
   const contactRef = useRef(null);
   const captchaRef = useRef(null); // Ref for ReCAPTCHA component
+  const errorRef = useRef(null); // Ref for error message
 
   const validateEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -59,6 +60,9 @@ const Contact = () => {
         email: !email,
         message: !message,
       });
+      if (errorRef.current) {
+        errorRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
@@ -66,6 +70,9 @@ const Contact = () => {
       setError('Please enter a valid email address.');
       setFormInvalid(true);
       setInvalidFields(prev => ({ ...prev, email: true }));
+      if (errorRef.current) {
+        errorRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
 
@@ -142,7 +149,7 @@ const Contact = () => {
 
         <form onSubmit={handleSubmit} className="contact-right" noValidate>
           {success && <div className="success-message">✅ Your message has been sent successfully!</div>}
-          {error && <div className="error-message">{error}</div>}
+          {error && <div ref={errorRef} className="error-message">{error}</div>}
 
           <label htmlFor="name">Your Name:</label>
           <input type="text" name="name" placeholder="Enter your name:" required onChange={handleInputChange} className={invalidFields.name ? 'input-error' : ''} />

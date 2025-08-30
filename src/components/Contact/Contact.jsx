@@ -27,7 +27,6 @@ const Contact = () => {
     setCaptchaValue(value);
     setFormInvalid(false); // Reset error state when captcha is changed
     setFormSubmitted(false); // Reset formSubmitted when user interacts with form
-    setInvalidFields(prev => ({ ...prev, captcha: false })); // Clear captcha invalid state
     const name = contactRef.current.querySelector('[name="name"]').value.trim();
     const email = contactRef.current.querySelector('[name="email"]').value.trim();
     const message = contactRef.current.querySelector('[name="message"]').value.trim();
@@ -59,7 +58,6 @@ const Contact = () => {
         name: !name,
         email: !email,
         message: !message,
-        captcha: !captchaValue,
       });
       return;
     }
@@ -156,7 +154,7 @@ const Contact = () => {
           <textarea name="message" rows="8" placeholder="Enter your Message Here:" required onChange={handleInputChange} className={invalidFields.message ? 'input-error' : ''} />
 
           {siteKey ? (
-            <div className={invalidFields.captcha ? 'input-error' : ''}>
+            <div>
               <ReCAPTCHA
                 sitekey={siteKey}
                 onChange={handleCaptchaChange}

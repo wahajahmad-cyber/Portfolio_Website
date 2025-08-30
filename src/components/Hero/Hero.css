@@ -232,7 +232,7 @@
     }
 
     .hero-social {
-        gap: 35px; /* Reverted to match friend's spacing */
+        gap: 25px; /* Decreased gap for mobile social icons */
         margin-top: 25px;
         margin-bottom: 0; /* Adjusted for better mobile spacing */
     }

@@ -13,7 +13,7 @@ const Education = () => {
           <div className="timeline-content">
             <div className="timeline-image">
               {/* Access directly from public folder */}
-              <img src="/alnafi.jpeg" alt="Al-Nafi International College" />
+              <img src="/Alnafi College.jpg" alt="Al-Nafi International College" />
             </div>
             <div className="timeline-text">
               <h3>Diploma In AiOps (Eduqual RQF Level 6)</h3>

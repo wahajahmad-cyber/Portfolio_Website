@@ -112,10 +112,10 @@
     text-shadow: 0 0 15px #2496ED;
 }
 
-.skills-format:nth-child(3):hover .skill-icon { /* Git */
-    color: #F05032;
-    filter: drop-shadow(0 0 8px #F05032) brightness(1.2);
-    text-shadow: 0 0 15px #F05032;
+.skills-format:nth-child(3):hover .skill-icon { /* Jenkins */
+    color: #D33834;
+    filter: drop-shadow(0 0 8px #D33834) brightness(1.2);
+    text-shadow: 0 0 15px #D33834;
 }
 
 .skills-format:nth-child(4):hover .skill-icon { 
@@ -255,11 +255,11 @@
         text-shadow: 0 0 15px #2496ED, 0 0 25px #2496ED;
     }
 
-    .skills-format:nth-child(3) .skill-icon { /* Git */
-        color: #F05032;
-        text-shadow: 0 0 12px #F05032;
-        filter: drop-shadow(0 0 8px #F05032) brightness(1.5);
-        text-shadow: 0 0 15px #F05032, 0 0 25px #F05032;
+    .skills-format:nth-child(3) .skill-icon { /* Jenkins */
+        color: #D33834;
+        text-shadow: 0 0 12px #D33834;
+        filter: drop-shadow(0 0 8px #D33834) brightness(1.5);
+        text-shadow: 0 0 15px #D33834, 0 0 25px #D33834;
     }
 
     .skills-format:nth-child(4) .skill-icon { 

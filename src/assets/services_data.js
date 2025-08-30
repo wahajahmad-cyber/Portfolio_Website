@@ -1,4 +1,4 @@
-import { FaAws, FaDocker, FaGitAlt, FaShieldAlt, FaChartLine, FaLinux } from "react-icons/fa";
+import { FaAws, FaDocker, FaJenkins, FaShieldAlt, FaChartLine, FaLinux } from "react-icons/fa";
 
 const ServicesData = [
   {
@@ -17,7 +17,7 @@ const ServicesData = [
     s_no: "03",
     s_name: "CI/CD & Automation",
     s_desc: "Hands-on in setting up CI/CD pipelines using Jenkins, GitHub Actions, and AWS CodePipeline. Comfortable writing automation scripts with Python, Bash, and YAML to streamline builds, testing, and deployments across environments.",
-    icon: FaGitAlt
+    icon: FaJenkins
   },
   {
     s_no: "04",

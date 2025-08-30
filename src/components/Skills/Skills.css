@@ -130,10 +130,10 @@
     text-shadow: 0 0 15px #F15B2A;
 }
 
-.skills-format:nth-child(6):hover .skill-icon { /* Linux */
-    color: #FCC624;
-    filter: drop-shadow(0 0 8px #FCC624) brightness(1.2);
-    text-shadow: 0 0 15px #FCC624;
+.skills-format:nth-child(6):hover .skill-icon { /* Git */
+    color: #F1502F;
+    filter: drop-shadow(0 0 8px #F1502F) brightness(1.2);
+    text-shadow: 0 0 15px #F1502F;
 }
 
 /* Text Styling */
@@ -276,11 +276,11 @@
         text-shadow: 0 0 15px #F15B2A, 0 0 25px #F15B2A;
     }
 
-    .skills-format:nth-child(6) .skill-icon { /* Linux */
-        color: #FCC624;
-        text-shadow: 0 0 12px #FCC624;
-        filter: drop-shadow(0 0 8px #FCC624) brightness(1.5);
-        text-shadow: 0 0 15px #FCC624, 0 0 25px #FCC624;
+    .skills-format:nth-child(6) .skill-icon { /* Git */
+        color: #F1502F;
+        text-shadow: 0 0 12px #F1502F;
+        filter: drop-shadow(0 0 8px #F1502F) brightness(1.5);
+        text-shadow: 0 0 15px #F1502F, 0 0 25px #F1502F;
     }
 
     .skill-icon {

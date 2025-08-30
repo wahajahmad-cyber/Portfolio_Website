@@ -1,4 +1,4 @@
-import { FaAws, FaDocker, FaJenkins, FaShieldAlt, FaLinux } from "react-icons/fa";
+import { FaAws, FaDocker, FaJenkins, FaShieldAlt, FaGitAlt } from "react-icons/fa";
 import { SiGrafana } from "react-icons/si";
 
 const ServicesData = [
@@ -36,7 +36,7 @@ const ServicesData = [
     s_no: "06",
     s_name: "Version Control & Operating Systems",
     s_desc: "Working experience with Git for version control and collaborating on projects using GitHub and GitLab. Comfortable with Linux environments, mainly Ubuntu and Red Hat Enterprise Linux, for development and server management.",
-    icon: FaLinux
+    icon: FaGitAlt
   }
 ];
 

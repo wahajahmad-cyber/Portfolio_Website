@@ -234,7 +234,7 @@
     .hero-social {
         gap: 35px;
         margin-top: 25px;
-        margin-bottom: 39%;
+        margin-bottom: 0; /* Adjusted for better mobile spacing */
     }
 
     .hero-social a {

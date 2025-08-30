@@ -12,8 +12,13 @@ const Contact = () => {
   const contactRef = useRef(null);
   const captchaRef = useRef(null); // Ref for ReCAPTCHA component
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const checkFormCompletion = (name, email, message, captcha) => {
-    setIsFormComplete(!!name && !!email && !!message && !!captcha);
+    setIsFormComplete(!!name && validateEmail(email) && !!message && !!captcha);
   };
 
   const handleCaptchaChange = (value) => {
@@ -43,6 +48,12 @@ const Contact = () => {
 
     if (!name || !email || !message || !captchaValue) {
       setError('Please fill out all fields and complete the CAPTCHA.');
+      setFormInvalid(true);
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
       setFormInvalid(true);
       return;
     }

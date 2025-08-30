@@ -100,22 +100,22 @@
 }
 
 /* Specific icon colors on hover */
-.skills-format:nth-child(1):hover .skill-icon { 
-    color: #61DBFB;
-    filter: drop-shadow(0 0 8px #61DBFB) brightness(1.2);
-    text-shadow: 0 0 15px #61DBFB;
-}
-
-.skills-format:nth-child(2):hover .skill-icon { 
-    color: #ed92f5;
-    filter: drop-shadow(0 0 8px #ed92f5) brightness(1.2);
-    text-shadow: 0 0 15px #ed92f5;
-}
-
-.skills-format:nth-child(3):hover .skill-icon { 
+.skills-format:nth-child(1):hover .skill-icon { /* AWS */
     color: #FF9900;
     filter: drop-shadow(0 0 8px #FF9900) brightness(1.2);
     text-shadow: 0 0 15px #FF9900;
+}
+
+.skills-format:nth-child(2):hover .skill-icon { /* Docker */
+    color: #2496ED;
+    filter: drop-shadow(0 0 8px #2496ED) brightness(1.2);
+    text-shadow: 0 0 15px #2496ED;
+}
+
+.skills-format:nth-child(3):hover .skill-icon { /* Git */
+    color: #F05032;
+    filter: drop-shadow(0 0 8px #F05032) brightness(1.2);
+    text-shadow: 0 0 15px #F05032;
 }
 
 .skills-format:nth-child(4):hover .skill-icon { 
@@ -130,10 +130,10 @@
     text-shadow: 0 0 15px #00758f;
 }
 
-.skills-format:nth-child(6):hover .skill-icon { 
-    color: #ffffff;
-    filter: drop-shadow(0 0 8px #ffffff) brightness(1.2);
-    text-shadow: 0 0 15px #ffffff;
+.skills-format:nth-child(6):hover .skill-icon { /* Linux */
+    color: #FCC624;
+    filter: drop-shadow(0 0 8px #FCC624) brightness(1.2);
+    text-shadow: 0 0 15px #FCC624;
 }
 
 /* Text Styling */
@@ -241,25 +241,25 @@
     }
 
     /* Always show icon colors and glow on mobile */
-    .skills-format:nth-child(1) .skill-icon { 
-        color: #61DBFB;
-        text-shadow: 0 0 12px #61DBFB;
-        filter: drop-shadow(0 0 8px #61DBFB) brightness(1.5);
-        text-shadow: 0 0 15px #61DBFB, 0 0 25px #61DBFB;
-    }
-
-    .skills-format:nth-child(2) .skill-icon { 
-        color: #ed92f5;
-        text-shadow: 0 0 12px #ed92f5;
-        filter: drop-shadow(0 0 8px #ed92f5) brightness(1.5);
-        text-shadow: 0 0 15px #ed92f5, 0 0 25px #ed92f5;
-    }
-
-    .skills-format:nth-child(3) .skill-icon { 
+    .skills-format:nth-child(1) .skill-icon { /* AWS */
         color: #FF9900;
         text-shadow: 0 0 12px #FF9900;
         filter: drop-shadow(0 0 8px #FF9900) brightness(1.5);
         text-shadow: 0 0 15px #FF9900, 0 0 25px #FF9900;
+    }
+
+    .skills-format:nth-child(2) .skill-icon { /* Docker */
+        color: #2496ED;
+        text-shadow: 0 0 12px #2496ED;
+        filter: drop-shadow(0 0 8px #2496ED) brightness(1.5);
+        text-shadow: 0 0 15px #2496ED, 0 0 25px #2496ED;
+    }
+
+    .skills-format:nth-child(3) .skill-icon { /* Git */
+        color: #F05032;
+        text-shadow: 0 0 12px #F05032;
+        filter: drop-shadow(0 0 8px #F05032) brightness(1.5);
+        text-shadow: 0 0 15px #F05032, 0 0 25px #F05032;
     }
 
     .skills-format:nth-child(4) .skill-icon { 
@@ -276,11 +276,11 @@
         text-shadow: 0 0 15px #00758f, 0 0 25px #00758f;
     }
 
-    .skills-format:nth-child(6) .skill-icon { 
-        color: #ffff;
-        text-shadow: 0 0 12px #ffff;
-        filter: drop-shadow(0 0 8px #ffffff) brightness(1.5);
-        text-shadow: 0 0 15px #ffffff, 0 0 25px #ffffff;
+    .skills-format:nth-child(6) .skill-icon { /* Linux */
+        color: #FCC624;
+        text-shadow: 0 0 12px #FCC624;
+        filter: drop-shadow(0 0 8px #FCC624) brightness(1.5);
+        text-shadow: 0 0 15px #FCC624, 0 0 25px #FCC624;
     }
 
     .skill-icon {

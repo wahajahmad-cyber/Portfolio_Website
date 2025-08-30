@@ -27,6 +27,34 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-top-left h1 {
+    font-size: 42px; /* Increased size */
+    font-weight: bold;
+    background: linear-gradient(
+        to right,
+        #fff 20%,
+        #888 30%,
+        #fff 70%,
+        #888 80%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
 .footer-top-left p {
     font-size: 16px;
     color: #888;
